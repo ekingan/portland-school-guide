@@ -1,902 +1,1195 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portland K Guide: One Family's Journey</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portland K Guide: One Family's Journey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  :root {
-    --green: #3B6D11;
-    --green-light: #EAF3DE;
-    --green-mid: #639922;
-    --teal: #0F6E56;
-    --teal-light: #E1F5EE;
-    --teal-mid: #1D9E75;
-    --amber: #854F0B;
-    --amber-light: #FAEEDA;
-    --amber-mid: #EF9F27;
-    --purple: #534AB7;
-    --purple-light: #EEEDFE;
-    --coral: #993C1D;
-    --coral-light: #FAECE7;
-    --gray-50: #F8F7F4;
-    --gray-100: #EFEDE7;
-    --gray-300: #C8C6BC;
-    --gray-500: #888780;
-    --gray-700: #444441;
-    --gray-900: #1C1C1A;
-    --text: #1C1C1A;
-    --text-muted: #5F5E5A;
-    --border: rgba(0,0,0,0.1);
-  }
+    :root {
+      --green: #3B6D11;
+      --green-light: #EAF3DE;
+      --green-mid: #639922;
+      --teal: #0F6E56;
+      --teal-light: #E1F5EE;
+      --teal-mid: #1D9E75;
+      --amber: #854F0B;
+      --amber-light: #FAEEDA;
+      --amber-mid: #EF9F27;
+      --purple: #534AB7;
+      --purple-light: #EEEDFE;
+      --coral: #993C1D;
+      --coral-light: #FAECE7;
+      --gray-50: #F8F7F4;
+      --gray-100: #EFEDE7;
+      --gray-300: #C8C6BC;
+      --gray-500: #888780;
+      --gray-700: #444441;
+      --gray-900: #1C1C1A;
+      --text: #1C1C1A;
+      --text-muted: #5F5E5A;
+      --border: rgba(0, 0, 0, 0.1);
+    }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: #FAFAF8;
-    color: var(--text);
-    line-height: 1.6;
-    min-height: 100vh;
-  }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #FAFAF8;
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-  /* HERO */
-  .hero {
-    background: #1C2B1A;
-    color: #E8F0E4;
-    padding: 4rem 2rem 3rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle at 20% 50%, rgba(99,153,34,0.15) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, rgba(29,158,117,0.12) 0%, transparent 40%);
-  }
-  .hero-tag {
-    display: inline-block;
-    background: rgba(99,153,34,0.25);
-    color: #C0DD97;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 1.5rem;
-    position: relative;
-  }
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    line-height: 1.15;
-    margin-bottom: 1rem;
-    position: relative;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: #9FE1CB;
-  }
-  .hero p {
-    font-size: 1.05rem;
-    color: rgba(232,240,228,0.75);
-    max-width: 560px;
-    margin: 0 auto 2rem;
-    position: relative;
-  }
-  .hero-criteria {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    position: relative;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  .criteria-pill {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: rgba(232,240,228,0.9);
-    font-size: 12px;
-    padding: 5px 12px;
-    border-radius: 20px;
-  }
-  .criteria-pill.highlight {
-    background: rgba(99,153,34,0.3);
-    border-color: rgba(99,153,34,0.5);
-    color: #C0DD97;
-  }
+    /* HERO */
+    .hero {
+      background: #1C2B1A;
+      color: #E8F0E4;
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-  /* NAV TABS */
-  .nav-wrap {
-    background: white;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-tabs {
-    display: flex;
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .nav-tabs::-webkit-scrollbar { display: none; }
-  .nav-tab {
-    flex-shrink: 0;
-    padding: 1rem 1.1rem;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-muted);
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    transition: all 0.15s;
-    white-space: nowrap;
-    background: none;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .nav-tab:hover { color: var(--text); }
-  .nav-tab.active { color: var(--green); border-bottom-color: var(--green); }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 20% 50%, rgba(99, 153, 34, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(29, 158, 117, 0.12) 0%, transparent 40%);
+    }
 
-  /* MAIN CONTENT */
-  .main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
-  .section { display: none; }
-  .section.active { display: block; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(99, 153, 34, 0.25);
+      color: #C0DD97;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
 
-  /* SECTION HEADER */
-  .section-header { margin-bottom: 2rem; }
-  .section-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--green-mid);
-    margin-bottom: 0.4rem;
-  }
-  .section-header h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.8rem;
-    line-height: 1.2;
-    color: var(--gray-900);
-  }
-  .section-header p {
-    margin-top: 0.6rem;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    max-width: 600px;
-  }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      position: relative;
+    }
 
-  /* SCHOOL CARDS */
-  .school-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  .school-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.25rem;
-    transition: border-color 0.15s, transform 0.1s;
-    cursor: default;
-  }
-  .school-card:hover {
-    border-color: var(--gray-300);
-    transform: translateY(-1px);
-  }
-  .school-card-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 0.75rem;
-  }
-  .school-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-  .school-card h3 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    line-height: 1.3;
-    color: var(--gray-900);
-  }
-  .school-card h3 a {
-    color: inherit;
-    text-decoration: none;
-  }
-  .school-card h3 a:hover { color: var(--green); text-decoration: underline; }
-  .school-card p {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
-  .badge {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 10px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-  .badge-neighborhood { background: var(--teal-light); color: var(--teal); }
-  .badge-charter { background: var(--purple-light); color: var(--purple); }
-  .badge-focus { background: var(--amber-light); color: var(--amber); }
-  .badge-private { background: var(--coral-light); color: var(--coral); }
-  .badge-chosen { background: var(--green-light); color: var(--green); }
+    .hero h1 em {
+      font-style: italic;
+      color: #9FE1CB;
+    }
 
-  /* FILTER BAR */
-  .filter-bar {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-  }
-  .filter-btn {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 6px 14px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: white;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .filter-btn:hover { border-color: var(--gray-300); color: var(--text); }
-  .filter-btn.active { background: var(--green); border-color: var(--green); color: white; }
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(232, 240, 228, 0.75);
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
 
-  /* DECISION SECTION */
-  .decision-intro {
-    background: #1C2B1A;
-    border-radius: 16px;
-    padding: 2rem 2.5rem;
-    color: #E8F0E4;
-    margin-bottom: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .decision-intro::before {
-    content: '';
-    position: absolute;
-    right: -40px; top: -40px;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: rgba(99,153,34,0.12);
-  }
-  .decision-intro h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    position: relative;
-  }
-  .decision-intro p { color: rgba(232,240,228,0.75); position: relative; font-size: 0.95rem; }
-  .decision-intro .winner-badge {
-    display: inline-block;
-    background: rgba(99,153,34,0.3);
-    border: 1px solid rgba(99,153,34,0.5);
-    color: #C0DD97;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 0.75rem;
-    position: relative;
-  }
+    .hero-criteria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-  .criteria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  .criteria-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1rem 1.1rem;
-  }
-  .criteria-card .icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
-  .criteria-card h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.25rem; }
-  .criteria-card p { font-size: 0.78rem; color: var(--text-muted); }
+    .criteria-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: rgba(232, 240, 228, 0.9);
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
 
-  /* TIPS SECTION */
-  .tips-list { display: flex; flex-direction: column; gap: 1rem; }
-  .tip-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-  .tip-num {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    background: var(--green);
-    color: white;
-    font-size: 13px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .tip-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
-  .tip-card p { font-size: 0.875rem; color: var(--text-muted); }
+    .criteria-pill.highlight {
+      background: rgba(99, 153, 34, 0.3);
+      border-color: rgba(99, 153, 34, 0.5);
+      color: #C0DD97;
+    }
 
-  /* ABOUT SECTION */
-  .about-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem 2rem;
-    margin-bottom: 1rem;
-  }
-  .about-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
-  .about-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
-  .process-steps { display: flex; flex-direction: column; gap: 0; }
-  .process-step {
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-    padding: 1.2rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .process-step:last-child { border-bottom: none; }
-  .step-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: var(--green-mid);
-    margin-top: 5px;
-    flex-shrink: 0;
-  }
-  .process-step h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
-  .process-step p { font-size: 0.82rem; color: var(--text-muted); }
+    /* NAV TABS */
+    .nav-wrap {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-  /* Chosen highlight border */
-  .school-card.chosen {
-    border-color: var(--green-mid);
-    border-width: 2px;
-  }
-  .school-card.runner {
-    border-color: var(--amber-mid);
-    border-width: 1.5px;
-  }
+    .nav-tabs {
+      display: flex;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
 
-  @media (max-width: 600px) {
-    .hero { padding: 3rem 1.25rem 2rem; }
-    .main { padding: 1.5rem 1rem 3rem; }
-    .school-grid { grid-template-columns: 1fr; }
-    .criteria-grid { grid-template-columns: 1fr 1fr; }
-    .decision-intro { padding: 1.5rem; }
-  }
-  /* ── SITE NAV ── */
-  .site-nav {
-    background: #0E100A;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    padding: 0 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 52px;
-    position: sticky;
-    top: 0;
-    z-index: 200;
-  }
-  .site-nav-brand {
-    font-family: 'DM Serif Display', serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #E8F0E4;
-    text-decoration: none;
-    letter-spacing: -0.01em;
-    white-space: nowrap;
-  }
-  .site-nav-links {
-    display: flex;
-    gap: 4px;
-  }
-  .site-nav-link {
-    font-size: 12px;
-    font-weight: 500;
-    color: rgba(232,240,228,0.55);
-    text-decoration: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: all 0.15s;
-    white-space: nowrap;
-  }
-  .site-nav-link:hover { color: #E8F0E4; background: rgba(255,255,255,0.07); }
-  .site-nav-link.active { color: #E8F0E4; background: rgba(255,255,255,0.1); }
-</style>
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-tab {
+      flex-shrink: 0;
+      padding: 1rem 1.1rem;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+      white-space: nowrap;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .nav-tab:hover {
+      color: var(--text);
+    }
+
+    .nav-tab.active {
+      color: var(--green);
+      border-bottom-color: var(--green);
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    /* SECTION HEADER */
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      line-height: 1.2;
+      color: var(--gray-900);
+    }
+
+    .section-header p {
+      margin-top: 0.6rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 600px;
+    }
+
+    /* SCHOOL CARDS */
+    .school-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .school-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: border-color 0.15s, transform 0.1s;
+      cursor: default;
+    }
+
+    .school-card:hover {
+      border-color: var(--gray-300);
+      transform: translateY(-1px);
+    }
+
+    .school-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 0.75rem;
+    }
+
+    .school-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .school-card h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--gray-900);
+    }
+
+    .school-card h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .school-card h3 a:hover {
+      color: var(--green);
+      text-decoration: underline;
+    }
+
+    .school-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge-neighborhood {
+      background: var(--teal-light);
+      color: var(--teal);
+    }
+
+    .badge-charter {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    .badge-focus {
+      background: var(--amber-light);
+      color: var(--amber);
+    }
+
+    .badge-private {
+      background: var(--coral-light);
+      color: var(--coral);
+    }
+
+    .badge-chosen {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    /* FILTER BAR */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--gray-300);
+      color: var(--text);
+    }
+
+    .filter-btn.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: white;
+    }
+
+    /* DECISION SECTION */
+    .decision-intro {
+      background: #1C2B1A;
+      border-radius: 16px;
+      padding: 2rem 2.5rem;
+      color: #E8F0E4;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .decision-intro::before {
+      content: '';
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(99, 153, 34, 0.12);
+    }
+
+    .decision-intro h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .decision-intro p {
+      color: rgba(232, 240, 228, 0.75);
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .decision-intro .winner-badge {
+      display: inline-block;
+      background: rgba(99, 153, 34, 0.3);
+      border: 1px solid rgba(99, 153, 34, 0.5);
+      color: #C0DD97;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .criteria-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+    }
+
+    .criteria-card .icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .criteria-card h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .criteria-card p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* TIPS SECTION */
+    .tips-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .tip-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .tip-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .tip-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .tip-card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* ABOUT SECTION */
+    .about-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .process-step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .process-step:last-child {
+      border-bottom: none;
+    }
+
+    .step-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green-mid);
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .process-step h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .process-step p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Chosen highlight border */
+    .school-card.chosen {
+      border-color: var(--green-mid);
+      border-width: 2px;
+    }
+
+    .school-card.runner {
+      border-color: var(--amber-mid);
+      border-width: 1.5px;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 3rem 1.25rem 2rem;
+      }
+
+      .main {
+        padding: 1.5rem 1rem 3rem;
+      }
+
+      .school-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .criteria-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .decision-intro {
+        padding: 1.5rem;
+      }
+    }
+
+    /* ── SITE NAV ── */
+    .site-nav {
+      background: #0E100A;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+
+    .site-nav-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #E8F0E4;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .site-nav-links {
+      display: flex;
+      gap: 4px;
+    }
+
+    .site-nav-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(232, 240, 228, 0.55);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .site-nav-link:hover {
+      color: #E8F0E4;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .site-nav-link.active {
+      color: #E8F0E4;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- SITE NAV -->
-<nav class="site-nav">
-  <a class="site-nav-brand" href="index.html">Choosing a School in Portland</a>
-  <div class="site-nav-links">
-    <a class="site-nav-link" href="index.html">Understanding the System</a>
-    <a class="site-nav-link active" href="guide.html">Our School Guide</a>
-  </div>
-</nav>
-
-<div class="hero">
-  <div class="hero-tag">Portland, Oregon · Kindergarten 2026</div>
-  <h1>Finding the Right School<br>for Our Kid in <em>Portland</em></h1>
-  <p>We visited dozens of schools across every category — here's everything we learned, and how we finally made the call.</p>
-  <div class="hero-criteria">
-    <span class="criteria-pill highlight">Small class sizes</span>
-    <span class="criteria-pill highlight">Alternative child centered education models</span>
-    <span class="criteria-pill highlight">Ample outdoor time</span>
-    <span class="criteria-pill highlight">Bikeability</span>
-    <span class="criteria-pill highlight">Diversity</span>
-    <span class="criteria-pill">Strong parent community</span>
-    <span class="criteria-pill">Building earthquake safety</span>
-  </div>
-</div>
-
-<div class="nav-wrap">
-  <div class="nav-tabs" role="tablist">
-    <button class="nav-tab active" onclick="showSection('schools')" role="tab">All Schools</button>
-    <button class="nav-tab" onclick="showSection('lotteries')" role="tab">Navigating the Lotteries</button>
-    <button class="nav-tab" onclick="showSection('quake')" role="tab">Earthquake Safety</button>
-    <button class="nav-tab" onclick="showSection('decision')" role="tab">Our Decision</button>
-    <button class="nav-tab" onclick="showSection('tips')" role="tab">Lessons Learned</button>
-    <button class="nav-tab" onclick="showSection('about')" role="tab">Our Process</button>
-  </div>
-</div>
-
-<div class="main">
-
-  <!-- ALL SCHOOLS -->
-  <div class="section active" id="schools">
-    <div class="section-header">
-      <div class="section-label">The Full Landscape</div>
-      <h2>Schools We Explored</h2>
-      <p>Fourteen schools across four categories — neighborhood, PPS focus option, public charter, and private. Filter by type below.</p>
+  <!-- SITE NAV -->
+  <nav class="site-nav">
+    <a class="site-nav-brand" href="index.html">Choosing a School in Portland</a>
+    <div class="site-nav-links">
+      <a class="site-nav-link" href="index.html">Understanding the System</a>
+      <a class="site-nav-link active" href="guide.html">Our School Guide</a>
     </div>
+  </nav>
 
-    <div class="filter-bar" role="group" aria-label="Filter by school type">
-      <button class="filter-btn active" onclick="filterCards('all', this)">All (14)</button>
-      <button class="filter-btn" onclick="filterCards('neighborhood', this)">Neighborhood (5)</button>
-      <button class="filter-btn" onclick="filterCards('focus', this)">PPS Focus Option (3)</button>
-      <button class="filter-btn" onclick="filterCards('charter', this)">Public Charter (6)</button>
-      <button class="filter-btn" onclick="filterCards('private', this)">Private (3)</button>
+  <div class="hero">
+    <div class="hero-tag">Portland, Oregon · Kindergarten 2026</div>
+    <h1>Finding the Right School<br>for Our Kid in <em>Portland</em></h1>
+    <p>We visited dozens of schools across every category — here's everything we learned, and how we finally made the
+      call.</p>
+    <div class="hero-criteria">
+      <span class="criteria-pill highlight">Small class sizes</span>
+      <span class="criteria-pill highlight">Alternative child centered education models</span>
+      <span class="criteria-pill highlight">Ample outdoor time</span>
+      <span class="criteria-pill highlight">Bikeability</span>
+      <span class="criteria-pill highlight">Diversity</span>
+      <span class="criteria-pill">Strong parent community</span>
+      <span class="criteria-pill">Building earthquake safety</span>
     </div>
-
-    <div class="school-grid" id="school-grid">
-
-      <!-- NEIGHBORHOOD SCHOOLS -->
-      <div class="school-card" data-type="neighborhood">
-        <div class="badge badge-neighborhood">Neighborhood</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#E1F5EE;">🏫</div>
-          <div>
-            <h3><a href="https://www.pps.net/vernon" target="_blank">Vernon K-8</a></h3>
-          </div>
-        </div>
-        <p>K-8 neighborhood school in NE Portland with a strong arts program and a tight-knit community feel.</p>
-      </div>
-
-      <div class="school-card" data-type="neighborhood">
-        <div class="badge badge-neighborhood">Neighborhood</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#E1F5EE;">🏫</div>
-          <div>
-            <h3><a href="https://www.pps.net/scott" target="_blank">Scott Elementary</a></h3>
-          </div>
-        </div>
-        <p>Northeast Portland neighborhood school serving K-5 with a diverse, community-oriented student body.</p>
-      </div>
-
-      <div class="school-card" data-type="neighborhood">
-        <div class="badge badge-neighborhood">Neighborhood</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#E1F5EE;">🏫</div>
-          <div>
-            <h3><a href="https://www.pps.net/rigler" target="_blank">Rigler Elementary</a></h3>
-          </div>
-        </div>
-        <p>A diverse K-5 school in NE Portland with dual language immersion in Spanish and community partnerships.</p>
-      </div>
-
-      <div class="school-card" data-type="neighborhood">
-        <div class="badge badge-neighborhood">Neighborhood</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#E1F5EE;">🏫</div>
-          <div>
-            <h3><a href="https://www.pps.net/sabin" target="_blank">Sabin Elementary</a></h3>
-          </div>
-        </div>
-        <p>NE Portland K-5 neighborhood school known for an active PTA and engaged parent community.</p>
-      </div>
-
-      <div class="school-card" data-type="neighborhood">
-        <div class="badge badge-neighborhood">Neighborhood</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#E1F5EE;">🏫</div>
-          <div>
-            <h3><a href="https://www.pps.net/alameda" target="_blank">Alameda Elementary</a></h3>
-          </div>
-        </div>
-        <p>A well-regarded NE Portland K-5 with strong academics, an active parent community, and a beautiful campus.</p>
-      </div>
-
-      <!-- PPS FOCUS OPTIONS -->
-      <div class="school-card" data-type="focus">
-        <div class="badge badge-focus">PPS Focus Option</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#FAEEDA;">🌍</div>
-          <div>
-            <h3><a href="https://www.pps.net/mlc" target="_blank">Metropolitan Learning Center (MLC)</a></h3>
-          </div>
-        </div>
-        <p>Portland's original alternative school — a K-12 program with a progressive, student-directed philosophy and open learning environment. Lottery-based admission.</p>
-      </div>
-
-      <div class="school-card" data-type="focus">
-        <div class="badge badge-focus">PPS Focus Option</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#FAEEDA;">🔬</div>
-          <div>
-            <h3><a href="https://www.pps.net/bridgercreativescience" target="_blank">Bridger Creative Science</a></h3>
-          </div>
-        </div>
-        <p>A K-8 focus option emphasizing creative, inquiry-based science integrated across subjects. Lottery admission open to all PPS students.</p>
-      </div>
-
-      <div class="school-card" data-type="focus">
-        <div class="badge badge-focus">PPS Focus Option</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#FAEEDA;">🌿</div>
-          <div>
-            <h3><a href="https://sunnyside.pps.net" target="_blank">Sunnyside Environmental K-8</a></h3>
-          </div>
-        </div>
-        <p>A place-based K-8 rooted in environmental education and justice, with school gardens, outdoor learning, and required Spanish. Open to all PPS families via lottery.</p>
-      </div>
-
-      <!-- PUBLIC CHARTERS -->
-      <div class="school-card" data-type="charter">
-        <div class="badge badge-charter">Public Charter</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#EEEDFE;">🏛️</div>
-          <div>
-            <h3><a href="https://www.cottonwoodschool.org" target="_blank">Cottonwood School of Civics & Science</a></h3>
-          </div>
-        </div>
-        <p>A tuition-free K-8 with a place-based, progressive curriculum focused on community, the arts, and the outdoors. Teachers write their own curriculum in-house.</p>
-      </div>
-
-      <div class="school-card" data-type="charter">
-        <div class="badge badge-charter">Public Charter</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#EEEDFE;">🌱</div>
-          <div>
-            <h3><a href="https://www.portlandvillageschool.org" target="_blank">Portland Village School</a></h3>
-          </div>
-        </div>
-        <p>A tuition-free Waldorf-methods public charter. Arts-integrated, participatory curriculum with music, drama, handwork, and second-language instruction.</p>
-      </div>
-
-      <div class="school-card" data-type="charter">
-        <div class="badge badge-charter">Public Charter</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#EEEDFE;">🍃</div>
-          <div>
-            <h3><a href="https://theivyschool.org" target="_blank">The Ivy School (Ivy Montessori)</a></h3>
-          </div>
-        </div>
-        <p>A public charter Montessori K-8 with multi-age classrooms and Spanish-language study. Mission-driven to serve diverse backgrounds and foster lifelong independent learners.</p>
-      </div>
-
-      <div class="school-card" data-type="charter">
-        <div class="badge badge-charter">Public Charter</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#EEEDFE;">✊</div>
-          <div>
-            <h3><a href="https://kairosdx.org" target="_blank">Kairos PDX</a></h3>
-          </div>
-        </div>
-        <p>A K-8 charter school centered on culturally responsive education and the academic achievement of students of color, particularly Black students.</p>
-      </div>
-
-      <div class="school-card" data-type="charter">
-        <div class="badge badge-charter">Public Charter</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#EEEDFE;">🇫🇷</div>
-          <div>
-            <h3><a href="https://lemondeimmersion.org" target="_blank">Le Monde French Immersion</a></h3>
-          </div>
-        </div>
-        <p>A tuition-free K-8 full French immersion charter school emphasizing international academic excellence and multilingual fluency.</p>
-      </div>
-
-      <div class="school-card chosen" data-type="charter">
-        <div class="badge badge-chosen">✓ Our Choice</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#EAF3DE;">🌟</div>
-          <div>
-            <h3><a href="https://www.emersonschool.org" target="_blank">The Emerson School</a></h3>
-          </div>
-        </div>
-        <p>A small, tuition-free K-5 public charter in NW Portland. Project-based learning, strong parent community, and the city as classroom. Consistently rated Outstanding by Oregon's report card.</p>
-      </div>
-
-      <!-- PRIVATE SCHOOLS -->
-      <div class="school-card" data-type="private">
-        <div class="badge badge-private">Private</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#FAECE7;">👂</div>
-          <div>
-            <h3><a href="https://www.tuckermaxon.org" target="_blank">Tucker Maxon School</a></h3>
-          </div>
-        </div>
-        <p>A nonprofit PK-5 co-enrolling deaf/hard-of-hearing and hearing students since 1947. Tiny class sizes (~8:1 adult ratio), rock climbing wall, organic garden, and goats on campus.</p>
-      </div>
-
-      <div class="school-card" data-type="private">
-        <div class="badge badge-private">Private</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#FAECE7;">🌲</div>
-          <div>
-            <h3><a href="https://www.portlandforestschool.org" target="_blank">Portland Forest School</a></h3>
-          </div>
-        </div>
-        <p>A nature-first K-8 private school where students go outside into forest settings every day. Earth-skills based, holistic curriculum with very small class sizes.</p>
-      </div>
-
-      <div class="school-card runner" data-type="private">
-        <div class="badge badge-private">Private · 2nd Choice</div>
-        <div class="school-card-header">
-          <div class="school-icon" style="background:#FAECE7;">🔡</div>
-          <div>
-            <h3><a href="https://portlandmontessori.org" target="_blank">The Portland Montessori School</a></h3>
-          </div>
-        </div>
-        <p>Oregon's original Montessori program — over 60 years of practice on a one-acre NE Portland campus. Toddler through 6th grade, with priority for children with prior Montessori experience.</p>
-      </div>
-
-    </div><!-- /school-grid -->
-
-    <p style="font-size:0.8rem; color:var(--text-muted); margin-top: 0.5rem;">
-      <span style="display:inline-block; width:12px; height:12px; border-radius:2px; border:2px solid #639922; vertical-align:middle; margin-right:4px;"></span> Our chosen school &nbsp;&nbsp;
-      <span style="display:inline-block; width:12px; height:12px; border-radius:2px; border:1.5px solid #EF9F27; vertical-align:middle; margin-right:4px;"></span> Runner-up
-    </p>
   </div>
 
-  <!-- LOTTERIES -->
-  <div class="section" id="lotteries">
-    <div class="section-header">
-      <div class="section-label">How the system works</div>
-      <h2>Navigating the Lotteries</h2>
-      <p>Portland's school application system has multiple tracks running at the same time — each with its own rules, calendar, and quirks. Here's what we learned firsthand.</p>
+  <div class="nav-wrap">
+    <div class="nav-tabs" role="tablist">
+      <button class="nav-tab active" onclick="showSection('schools')" role="tab">All Schools</button>
+      <button class="nav-tab" onclick="showSection('lotteries')" role="tab">Navigating the Lotteries</button>
+      <button class="nav-tab" onclick="showSection('quake')" role="tab">Earthquake Safety</button>
+      <button class="nav-tab" onclick="showSection('decision')" role="tab">Our Decision</button>
+      <button class="nav-tab" onclick="showSection('tips')" role="tab">Lessons Learned</button>
+      <button class="nav-tab" onclick="showSection('about')" role="tab">Our Process</button>
     </div>
+  </div>
 
-    <div class="about-card" style="border-left: 3px solid var(--green-mid); border-radius: 0 12px 12px 0;">
-      <h3>📖 Required reading: PDX Parent's lottery guide</h3>
-      <p>PDX Parent has written the definitive guide to this process. It covers how the PPS focus option lottery works, how to apply to charter schools, how to submit a hardship petition to attend a neighborhood school outside your catchment, and what to do if you land on a waitlist. We referred back to it throughout our entire process.</p>
-      <p style="margin-top: 0.75rem;">
-        <a href="https://pdxparent.com/lottery-lowdown/" target="_blank" style="color: var(--green); font-weight: 600; text-decoration: none;">
-          Read "Everything You Need to Know About the PPS School Lottery" → pdxparent.com
-        </a>
+  <div class="main">
+
+    <!-- ALL SCHOOLS -->
+    <div class="section active" id="schools">
+      <div class="section-header">
+        <div class="section-label">The Full Landscape</div>
+        <h2>Schools We Explored</h2>
+        <p>Fourteen schools across four categories — neighborhood, PPS focus option, public charter, and private. Filter
+          by type below.</p>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filter by school type">
+        <button class="filter-btn active" onclick="filterCards('all', this)">All (14)</button>
+        <button class="filter-btn" onclick="filterCards('neighborhood', this)">Neighborhood (5)</button>
+        <button class="filter-btn" onclick="filterCards('focus', this)">PPS Focus Option (3)</button>
+        <button class="filter-btn" onclick="filterCards('charter', this)">Public Charter (6)</button>
+        <button class="filter-btn" onclick="filterCards('private', this)">Private (3)</button>
+      </div>
+
+      <div class="school-grid" id="school-grid">
+
+        <!-- NEIGHBORHOOD SCHOOLS -->
+        <div class="school-card" data-type="neighborhood">
+          <div class="badge badge-neighborhood">Neighborhood</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#E1F5EE;">🏫</div>
+            <div>
+              <h3><a href="https://www.pps.net/vernon" target="_blank">Vernon K-8</a></h3>
+            </div>
+          </div>
+          <p>K-8 neighborhood school in NE Portland with a strong arts program and a tight-knit community feel.</p>
+        </div>
+
+        <div class="school-card" data-type="neighborhood">
+          <div class="badge badge-neighborhood">Neighborhood</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#E1F5EE;">🏫</div>
+            <div>
+              <h3><a href="https://www.pps.net/scott" target="_blank">Scott Elementary</a></h3>
+            </div>
+          </div>
+          <p>Northeast Portland neighborhood school serving K-5 with a diverse, community-oriented student body.</p>
+        </div>
+
+        <div class="school-card" data-type="neighborhood">
+          <div class="badge badge-neighborhood">Neighborhood</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#E1F5EE;">🏫</div>
+            <div>
+              <h3><a href="https://www.pps.net/rigler" target="_blank">Rigler Elementary</a></h3>
+            </div>
+          </div>
+          <p>A diverse K-5 school in NE Portland with dual language immersion in Spanish and community partnerships.</p>
+        </div>
+
+        <div class="school-card" data-type="neighborhood">
+          <div class="badge badge-neighborhood">Neighborhood</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#E1F5EE;">🏫</div>
+            <div>
+              <h3><a href="https://www.pps.net/sabin" target="_blank">Sabin Elementary</a></h3>
+            </div>
+          </div>
+          <p>NE Portland K-5 neighborhood school known for an active PTA and engaged parent community.</p>
+        </div>
+
+        <div class="school-card" data-type="neighborhood">
+          <div class="badge badge-neighborhood">Neighborhood</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#E1F5EE;">🏫</div>
+            <div>
+              <h3><a href="https://www.pps.net/alameda" target="_blank">Alameda Elementary</a></h3>
+            </div>
+          </div>
+          <p>A well-regarded NE Portland K-5 with strong academics, an active parent community, and a beautiful campus.
+          </p>
+        </div>
+
+        <!-- PPS FOCUS OPTIONS -->
+        <div class="school-card" data-type="focus">
+          <div class="badge badge-focus">PPS Focus Option</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#FAEEDA;">🌍</div>
+            <div>
+              <h3><a href="https://www.pps.net/mlc" target="_blank">Metropolitan Learning Center (MLC)</a></h3>
+            </div>
+          </div>
+          <p>Portland's original alternative school — a K-12 program with a progressive, student-directed philosophy and
+            open learning environment. Lottery-based admission.</p>
+        </div>
+
+        <div class="school-card" data-type="focus">
+          <div class="badge badge-focus">PPS Focus Option</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#FAEEDA;">🔬</div>
+            <div>
+              <h3><a href="https://www.pps.net/bridgercreativescience" target="_blank">Bridger Creative Science</a></h3>
+            </div>
+          </div>
+          <p>A K-8 focus option emphasizing creative, inquiry-based science integrated across subjects. Lottery
+            admission open to all PPS students.</p>
+        </div>
+
+        <div class="school-card" data-type="focus">
+          <div class="badge badge-focus">PPS Focus Option</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#FAEEDA;">🌿</div>
+            <div>
+              <h3><a href="https://sunnyside.pps.net" target="_blank">Sunnyside Environmental K-8</a></h3>
+            </div>
+          </div>
+          <p>A place-based K-8 rooted in environmental education and justice, with school gardens, outdoor learning, and
+            required Spanish. Open to all PPS families via lottery.</p>
+        </div>
+
+        <!-- PUBLIC CHARTERS -->
+        <div class="school-card" data-type="charter">
+          <div class="badge badge-charter">Public Charter</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#EEEDFE;">🏛️</div>
+            <div>
+              <h3><a href="https://www.cottonwoodschool.org" target="_blank">Cottonwood School of Civics & Science</a>
+              </h3>
+            </div>
+          </div>
+          <p>A tuition-free K-8 with a place-based, progressive curriculum focused on community, the arts, and the
+            outdoors. Teachers write their own curriculum in-house.</p>
+        </div>
+
+        <div class="school-card" data-type="charter">
+          <div class="badge badge-charter">Public Charter</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#EEEDFE;">🌱</div>
+            <div>
+              <h3><a href="https://www.portlandvillageschool.org" target="_blank">Portland Village School</a></h3>
+            </div>
+          </div>
+          <p>A tuition-free Waldorf-methods public charter. Arts-integrated, participatory curriculum with music, drama,
+            handwork, and second-language instruction.</p>
+        </div>
+
+        <div class="school-card" data-type="charter">
+          <div class="badge badge-charter">Public Charter</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#EEEDFE;">🍃</div>
+            <div>
+              <h3><a href="https://theivyschool.org" target="_blank">The Ivy School (Ivy Montessori)</a></h3>
+            </div>
+          </div>
+          <p>A public charter Montessori K-8 with multi-age classrooms and Spanish-language study. Mission-driven to
+            serve diverse backgrounds and foster lifelong independent learners.</p>
+        </div>
+
+        <div class="school-card" data-type="charter">
+          <div class="badge badge-charter">Public Charter</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#EEEDFE;">✊</div>
+            <div>
+              <h3><a href="https://kairosdx.org" target="_blank">Kairos PDX</a></h3>
+            </div>
+          </div>
+          <p>A K-8 charter school centered on culturally responsive education and the academic achievement of students
+            of color, particularly Black students.</p>
+        </div>
+
+        <div class="school-card" data-type="charter">
+          <div class="badge badge-charter">Public Charter</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#EEEDFE;">🇫🇷</div>
+            <div>
+              <h3><a href="https://lemondeimmersion.org" target="_blank">Le Monde French Immersion</a></h3>
+            </div>
+          </div>
+          <p>A tuition-free K-8 full French immersion charter school emphasizing international academic excellence and
+            multilingual fluency.</p>
+        </div>
+
+        <div class="school-card chosen" data-type="charter">
+          <div class="badge badge-charter">Public Charter</div>
+          <div class="badge badge-chosen">✓ Our Choice</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#EAF3DE;">🌟</div>
+            <div>
+              <h3><a href="https://www.emersonschool.org" target="_blank">The Emerson School</a></h3>
+            </div>
+          </div>
+          <p>A small, tuition-free K-5 public charter in NW Portland. Project-based learning, strong parent community,
+            and the city as classroom. Consistently rated Outstanding by Oregon's report card.</p>
+        </div>
+
+        <!-- PRIVATE SCHOOLS -->
+        <div class="school-card" data-type="private">
+          <div class="badge badge-private">Private</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#FAECE7;">👂</div>
+            <div>
+              <h3><a href="https://www.tuckermaxon.org" target="_blank">Tucker Maxon School</a></h3>
+            </div>
+          </div>
+          <p>A nonprofit PK-5 co-enrolling deaf/hard-of-hearing and hearing students since 1947. Tiny class sizes (~8:1
+            adult ratio), rock climbing wall, organic garden, and goats on campus.</p>
+        </div>
+
+        <div class="school-card" data-type="private">
+          <div class="badge badge-private">Private</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#FAECE7;">🌲</div>
+            <div>
+              <h3><a href="https://www.portlandforestschool.org" target="_blank">Portland Forest School</a></h3>
+            </div>
+          </div>
+          <p>A nature-first K-8 private school where students go outside into forest settings every day. Earth-skills
+            based, holistic curriculum with very small class sizes.</p>
+        </div>
+
+        <div class="school-card runner" data-type="private">
+          <div class="badge badge-private">Private · 2nd Choice</div>
+          <div class="school-card-header">
+            <div class="school-icon" style="background:#FAECE7;">🔡</div>
+            <div>
+              <h3><a href="https://portlandmontessori.org" target="_blank">The Portland Montessori School</a></h3>
+            </div>
+          </div>
+          <p>Oregon's original Montessori program — over 60 years of practice on a one-acre NE Portland campus. Toddler
+            through 6th grade, with priority for children with prior Montessori experience.</p>
+        </div>
+
+      </div><!-- /school-grid -->
+
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-top: 0.5rem;">
+        <span
+          style="display:inline-block; width:12px; height:12px; border-radius:2px; border:2px solid #639922; vertical-align:middle; margin-right:4px;"></span>
+        Our chosen school &nbsp;&nbsp;
+        <span
+          style="display:inline-block; width:12px; height:12px; border-radius:2px; border:1.5px solid #EF9F27; vertical-align:middle; margin-right:4px;"></span>
+        Runner-up
       </p>
     </div>
 
-    <div style="margin: 1.5rem 0 0.75rem;">
-      <div class="section-label">The two parallel systems</div>
-    </div>
+    <!-- LOTTERIES -->
+    <div class="section" id="lotteries">
+      <div class="section-header">
+        <div class="section-label">How the system works</div>
+        <h2>Navigating the Lotteries</h2>
+        <p>Portland's school application system has multiple tracks running at the same time — each with its own rules,
+          calendar, and quirks. Here's what we learned firsthand.</p>
+      </div>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+      <div class="about-card" style="border-left: 3px solid var(--green-mid); border-radius: 0 12px 12px 0;">
+        <h3>📖 Required reading: PDX Parent's lottery guide</h3>
+        <p>PDX Parent has written the definitive guide to this process. It covers how the PPS focus option lottery
+          works, how to apply to charter schools, how to submit a hardship petition to attend a neighborhood school
+          outside your catchment, and what to do if you land on a waitlist. We referred back to it throughout our entire
+          process.</p>
+        <p style="margin-top: 0.75rem;">
+          <a href="https://pdxparent.com/lottery-lowdown/" target="_blank"
+            style="color: var(--green); font-weight: 600; text-decoration: none;">
+            Read "Everything You Need to Know About the PPS School Lottery" → pdxparent.com
+          </a>
+        </p>
+      </div>
+
+      <div style="margin: 1.5rem 0 0.75rem;">
+        <div class="section-label">The two parallel systems</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+        <div class="about-card">
+          <h3 style="font-size: 1rem;">PPS Focus Option Lottery</h3>
+          <p>Run centrally by Portland Public Schools. You can select up to three focus option schools (MLC, Bridger
+            Creative Science, Sunnyside Environmental, and others) and <strong>must rank them in order of
+              preference</strong>. Your ranking matters — a higher-ranked school takes priority if you're offered a seat
+            in more than one. Results typically arrive several weeks after the lottery window closes.</p>
+        </div>
+        <div class="about-card">
+          <h3 style="font-size: 1rem;">Charter School Lotteries</h3>
+          <p>Each of Portland's seven charter schools (Cottonwood, Emerson, The Ivy School, Kairos PDX, Le Monde,
+            Portland Arthur Academy, Portland Village School) runs its own independent lottery. You apply separately to
+            each one. Deadlines and processes vary by school — check each school's website directly.</p>
+        </div>
+      </div>
+
       <div class="about-card">
-        <h3 style="font-size: 1rem;">PPS Focus Option Lottery</h3>
-        <p>Run centrally by Portland Public Schools. You can select up to three focus option schools (MLC, Bridger Creative Science, Sunnyside Environmental, and others) and <strong>must rank them in order of preference</strong>. Your ranking matters — a higher-ranked school takes priority if you're offered a seat in more than one. Results typically arrive several weeks after the lottery window closes.</p>
+        <h3>Timing: charters first, PPS second</h3>
+        <p>Both lotteries run roughly in the same window, but they don't land at exactly the same time. In our
+          experience, charter school results came in before the PPS focus option results. This means you may be making
+          decisions about waitlists — or accepting offers — before you've heard from all the schools you applied to.
+          Build in some mental flexibility for that overlap.</p>
       </div>
+
+      <div class="about-card" style="border-left: 3px solid var(--amber-mid); border-radius: 0 12px 12px 0;">
+        <h3>⚡ Waitlists: ask your position immediately</h3>
+        <p>If you land on a waitlist, contact the school right away and ask your specific position number. This is
+          critical information that schools don't always volunteer upfront. A waitlist position of 5 is very different
+          from 120 — and knowing your number helps you decide whether to hold other offers or move on.</p>
+        <p style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">From our own experience: we were
+          waitlisted at position 120 at Le Monde (effectively out of reach), and at position 30 at both Emerson and The
+          Ivy School. Knowing those numbers helped us stay patient and focused on the right schools.</p>
+      </div>
+
       <div class="about-card">
-        <h3 style="font-size: 1rem;">Charter School Lotteries</h3>
-        <p>Each of Portland's seven charter schools (Cottonwood, Emerson, The Ivy School, Kairos PDX, Le Monde, Portland Arthur Academy, Portland Village School) runs its own independent lottery. You apply separately to each one. Deadlines and processes vary by school — check each school's website directly.</p>
+        <h3>Be ready to move fast</h3>
+        <p>When a spot opens off a waitlist, schools need an answer quickly — sometimes within 24–48 hours. We got the
+          call from Emerson unexpectedly and had to make a fast decision. Know in advance how you'd rank your waitlisted
+          schools if multiple spots opened at once, so you're not making a high-stakes choice under pressure with no
+          preparation.</p>
+      </div>
+
+      <div class="about-card">
+        <h3>The hardship petition: attending a non-catchment neighborhood school</h3>
+        <p>If you want to send your child to a neighborhood school outside your assigned catchment — for example,
+          because of proximity to a grandparent's home, a sibling's school, or a work commute — you can submit a
+          hardship petition to PPS. This is separate from the focus option lottery. PDX Parent's article above covers
+          how to submit one and what qualifies. It's worth knowing this option exists even if you don't end up needing
+          it.</p>
+      </div>
+
+      <div class="about-card">
+        <h3>Your neighborhood school is your guaranteed fallback</h3>
+        <p>No matter how the lotteries go, your assigned neighborhood school will hold a spot for your child. We kept
+          this in mind throughout the process — it made the uncertainty of waitlists much easier to sit with, knowing
+          there was always a place for our kid regardless of outcome.</p>
       </div>
     </div>
 
-    <div class="about-card">
-      <h3>Timing: charters first, PPS second</h3>
-      <p>Both lotteries run roughly in the same window, but they don't land at exactly the same time. In our experience, charter school results came in before the PPS focus option results. This means you may be making decisions about waitlists — or accepting offers — before you've heard from all the schools you applied to. Build in some mental flexibility for that overlap.</p>
-    </div>
+    <!-- EARTHQUAKE SAFETY -->
+    <div class="section" id="quake">
+      <div class="section-header">
+        <div class="section-label">A concern that shaped our search</div>
+        <h2>Earthquake Safety</h2>
+        <p>This section reflects our personal experience and values. Seismic safety was a major factor in our school
+          search — but we recognize it may not carry the same weight for every family. We're sharing what we learned in
+          case it's useful.</p>
+      </div>
 
-    <div class="about-card" style="border-left: 3px solid var(--amber-mid); border-radius: 0 12px 12px 0;">
-      <h3>⚡ Waitlists: ask your position immediately</h3>
-      <p>If you land on a waitlist, contact the school right away and ask your specific position number. This is critical information that schools don't always volunteer upfront. A waitlist position of 5 is very different from 120 — and knowing your number helps you decide whether to hold other offers or move on.</p>
-      <p style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">From our own experience: we were waitlisted at position 120 at Le Monde (effectively out of reach), and at position 30 at both Emerson and The Ivy School. Knowing those numbers helped us stay patient and focused on the right schools.</p>
-    </div>
+      <div
+        style="background: #2A1A0E; border-radius: 16px; padding: 1.75rem 2rem; color: #F5E6D3; margin-bottom: 1.5rem; position: relative; overflow: hidden;">
+        <div
+          style="position:absolute; right:-30px; top:-30px; width:160px; height:160px; border-radius:50%; background:rgba(239,159,39,0.1);">
+        </div>
+        <div
+          style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#FAC775; margin-bottom:0.5rem; position:relative;">
+          Why this mattered to us</div>
+        <p style="position:relative; font-size:0.95rem; color:rgba(245,230,211,0.85); line-height:1.7;">We have personal
+          experience with a major earthquake. That experience made seismic risk feel viscerally real in a way it might
+          not for families who haven't lived through one. It became a lens through which we evaluated every school
+          building — and ultimately steered us away from a number of Portland Public Schools we might otherwise have
+          considered seriously.</p>
+      </div>
 
-    <div class="about-card">
-      <h3>Be ready to move fast</h3>
-      <p>When a spot opens off a waitlist, schools need an answer quickly — sometimes within 24–48 hours. We got the call from Emerson unexpectedly and had to make a fast decision. Know in advance how you'd rank your waitlisted schools if multiple spots opened at once, so you're not making a high-stakes choice under pressure with no preparation.</p>
-    </div>
+      <div class="about-card">
+        <h3>Portland's seismic risk is real and well-documented</h3>
+        <p>Portland sits near the Cascadia Subduction Zone, a major offshore fault capable of producing a magnitude 8–9
+          earthquake. Oregon emergency management estimates a roughly 37% chance of a major Cascadia event in the next
+          50 years. In such a quake, buildings made of unreinforced masonry — older brick and concrete block
+          construction — are at the highest risk of collapse. Many of Portland's school buildings are old, and some are
+          built exactly this way.</p>
+      </div>
 
-    <div class="about-card">
-      <h3>The hardship petition: attending a non-catchment neighborhood school</h3>
-      <p>If you want to send your child to a neighborhood school outside your assigned catchment — for example, because of proximity to a grandparent's home, a sibling's school, or a work commute — you can submit a hardship petition to PPS. This is separate from the focus option lottery. PDX Parent's article above covers how to submit one and what qualifies. It's worth knowing this option exists even if you don't end up needing it.</p>
-    </div>
+      <div class="about-card" style="border-left: 3px solid var(--amber-mid); border-radius: 0 12px 12px 0;">
+        <h3>⚠️ 19 PPS schools are in unreinforced masonry buildings</h3>
+        <p>A 2024 seismic assessment commissioned by Portland Public Schools and conducted by Holmes Consulting Group
+          identified 19 elementary and middle school buildings across the district made of unreinforced masonry (URM) —
+          the construction type most likely to collapse in even a moderate earthquake. Retrofitting just the URM
+          buildings alone is estimated to cost over $118 million; addressing seismic deficiencies across all PPS schools
+          is estimated at roughly $900 million.</p>
+        <p style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">
+          Source: <a
+            href="https://www.wweek.com/news/schools/2025/05/10/here-are-the-19-pps-elementary-and-middle-schools-in-unreinforced-masonry-buildings/"
+            target="_blank" style="color:var(--amber);">Willamette Week, May 2025</a>
+        </p>
+      </div>
 
-    <div class="about-card">
-      <h3>Your neighborhood school is your guaranteed fallback</h3>
-      <p>No matter how the lotteries go, your assigned neighborhood school will hold a spot for your child. We kept this in mind throughout the process — it made the uncertainty of waitlists much easier to sit with, knowing there was always a place for our kid regardless of outcome.</p>
-    </div>
-  </div>
+      <div class="about-card">
+        <h3>The 2025 bond and seismic commitments</h3>
+        <p>In May 2025, Portland voters approved a $1.83 billion school bond. Prior to the vote, parent advocates pushed
+          the School Board to formally commit a portion of the funds to seismic upgrades. The Board passed Resolution
+          7109, directing funds toward the highest-risk buildings first using a transparent, data-driven prioritization
+          process. Some retrofits are already underway or scheduled. However, the full scope of work across all PPS
+          schools remains far larger than current funding can cover, and the sequencing of which schools get upgraded —
+          and when — is still unfolding.</p>
+        <p style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">
+          PPS's official seismic assessment page: <a
+            href="https://www.pps.net/departments/rise/pps-maps-and-facility-data/seismic-assessments" target="_blank"
+            style="color:var(--green);">pps.net — Seismic Assessments</a><br>
+          Retrofit progress tracker: <a href="https://bond.pps.net/seismic-improvements" target="_blank"
+            style="color:var(--green);">bond.pps.net — Seismic Improvements</a>
+        </p>
+      </div>
 
-  <!-- EARTHQUAKE SAFETY -->
-  <div class="section" id="quake">
-    <div class="section-header">
-      <div class="section-label">A concern that shaped our search</div>
-      <h2>Earthquake Safety</h2>
-      <p>This section reflects our personal experience and values. Seismic safety was a major factor in our school search — but we recognize it may not carry the same weight for every family. We're sharing what we learned in case it's useful.</p>
-    </div>
+      <div class="about-card">
+        <h3>Schools that have already been retrofitted</h3>
+        <p>Some PPS schools have received seismic upgrades through earlier bond cycles. Per Willamette Week's reporting,
+          Franklin, Grant, and Roosevelt high schools have been fully retrofitted, along with Alameda, Lewis, and
+          Kellogg primary schools. Of the neighborhood schools we visited, <strong>Alameda's</strong> retrofit history
+          was one factor that kept it on our list longer than others. Building age alone isn't a perfect guide — it
+          matters what the building is made of and whether retrofit work has been done.</p>
+      </div>
 
-    <div style="background: #2A1A0E; border-radius: 16px; padding: 1.75rem 2rem; color: #F5E6D3; margin-bottom: 1.5rem; position: relative; overflow: hidden;">
-      <div style="position:absolute; right:-30px; top:-30px; width:160px; height:160px; border-radius:50%; background:rgba(239,159,39,0.1);"></div>
-      <div style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#FAC775; margin-bottom:0.5rem; position:relative;">Why this mattered to us</div>
-      <p style="position:relative; font-size:0.95rem; color:rgba(245,230,211,0.85); line-height:1.7;">We have personal experience with a major earthquake. That experience made seismic risk feel viscerally real in a way it might not for families who haven't lived through one. It became a lens through which we evaluated every school building — and ultimately steered us away from a number of Portland Public Schools we might otherwise have considered seriously.</p>
-    </div>
+      <div class="about-card">
+        <h3>How we thought about charter and private schools</h3>
+        <p>Several of the schools we were most drawn to are housed in newer buildings or smaller structures that don't
+          carry the same URM risk profile as the older PPS brick schoolhouses. The Emerson School's "forever home" is a
+          modern building. The Portland Montessori School's campus was in a building built in 1940 and was mostly
+          constructed of wood. For any school, we'd recommend asking directly: what year was this building constructed,
+          is it on the City of Portland's URM list, and has any seismic work been done?</p>
+      </div>
 
-    <div class="about-card">
-      <h3>Portland's seismic risk is real and well-documented</h3>
-      <p>Portland sits near the Cascadia Subduction Zone, a major offshore fault capable of producing a magnitude 8–9 earthquake. Oregon emergency management estimates a roughly 37% chance of a major Cascadia event in the next 50 years. In such a quake, buildings made of unreinforced masonry — older brick and concrete block construction — are at the highest risk of collapse. Many of Portland's school buildings are old, and some are built exactly this way.</p>
-    </div>
-
-    <div class="about-card" style="border-left: 3px solid var(--amber-mid); border-radius: 0 12px 12px 0;">
-      <h3>⚠️ 19 PPS schools are in unreinforced masonry buildings</h3>
-      <p>A 2024 seismic assessment commissioned by Portland Public Schools and conducted by Holmes Consulting Group identified 19 elementary and middle school buildings across the district made of unreinforced masonry (URM) — the construction type most likely to collapse in even a moderate earthquake. Retrofitting just the URM buildings alone is estimated to cost over $118 million; addressing seismic deficiencies across all PPS schools is estimated at roughly $900 million.</p>
-      <p style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">
-        Source: <a href="https://www.wweek.com/news/schools/2025/05/10/here-are-the-19-pps-elementary-and-middle-schools-in-unreinforced-masonry-buildings/" target="_blank" style="color:var(--amber);">Willamette Week, May 2025</a>
-      </p>
-    </div>
-
-    <div class="about-card">
-      <h3>The 2025 bond and seismic commitments</h3>
-      <p>In May 2025, Portland voters approved a $1.83 billion school bond. Prior to the vote, parent advocates pushed the School Board to formally commit a portion of the funds to seismic upgrades. The Board passed Resolution 7109, directing funds toward the highest-risk buildings first using a transparent, data-driven prioritization process. Some retrofits are already underway or scheduled. However, the full scope of work across all PPS schools remains far larger than current funding can cover, and the sequencing of which schools get upgraded — and when — is still unfolding.</p>
-      <p style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">
-        PPS's official seismic assessment page: <a href="https://www.pps.net/departments/rise/pps-maps-and-facility-data/seismic-assessments" target="_blank" style="color:var(--green);">pps.net — Seismic Assessments</a><br>
-        Retrofit progress tracker: <a href="https://bond.pps.net/seismic-improvements" target="_blank" style="color:var(--green);">bond.pps.net — Seismic Improvements</a>
-      </p>
-    </div>
-
-    <div class="about-card">
-      <h3>Schools that have already been retrofitted</h3>
-      <p>Some PPS schools have received seismic upgrades through earlier bond cycles. Per Willamette Week's reporting, Franklin, Grant, and Roosevelt high schools have been fully retrofitted, along with Alameda, Lewis, and Kellogg primary schools. Of the neighborhood schools we visited, <strong>Alameda's</strong> retrofit history was one factor that kept it on our list longer than others. Building age alone isn't a perfect guide — it matters what the building is made of and whether retrofit work has been done.</p>
-    </div>
-
-    <div class="about-card">
-      <h3>How we thought about charter and private schools</h3>
-      <p>Several of the schools we were most drawn to are housed in newer buildings or smaller structures that don't carry the same URM risk profile as the older PPS brick schoolhouses. The Emerson School's "forever home" is a modern building. The Portland Montessori School's campus was in a building built in 1940 and was mostly constructed of wood. For any school, we'd recommend asking directly: what year was this building constructed, is it on the City of Portland's URM list, and has any seismic work been done?</p>
-    </div>
-
-    <div class="about-card">
-      <h3>Questions to ask on a school tour</h3>
-      <div class="process-steps">
-        <div class="process-step">
-          <div class="step-dot" style="background: var(--amber-mid);"></div>
-          <div>
-            <h4>Is this building on Portland's Unreinforced Masonry (URM) list?</h4>
-            <p>The City of Portland maintains a public list of URM buildings. Schools can confirm this directly.</p>
+      <div class="about-card">
+        <h3>Questions to ask on a school tour</h3>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-dot" style="background: var(--amber-mid);"></div>
+            <div>
+              <h4>Is this building on Portland's Unreinforced Masonry (URM) list?</h4>
+              <p>The City of Portland maintains a public list of URM buildings. Schools can confirm this directly.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-dot" style="background: var(--amber-mid);"></div>
+            <div>
+              <h4>Has this building received seismic retrofitting, and when?</h4>
+              <p>Ask for specifics — partial retrofits and full retrofits are meaningfully different.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-dot" style="background: var(--amber-mid);"></div>
+            <div>
+              <h4>What is the school's earthquake emergency plan?</h4>
+              <p>Drop, cover, hold on — and then what? Ask how the school communicates with families after an event and
+                where the reunification site is.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-dot" style="background: var(--amber-mid);"></div>
+            <div>
+              <h4>For PPS schools: what is this building's seismic risk score?</h4>
+              <p>The Holmes Consulting Group assessment assigned risk scores to all PPS buildings. The full report is
+                public — you can look up your school before or after a tour.</p>
+            </div>
           </div>
         </div>
-        <div class="process-step">
-          <div class="step-dot" style="background: var(--amber-mid);"></div>
-          <div>
-            <h4>Has this building received seismic retrofitting, and when?</h4>
-            <p>Ask for specifics — partial retrofits and full retrofits are meaningfully different.</p>
-          </div>
+      </div>
+
+      <div class="about-card">
+        <h3>Further reading</h3>
+        <p>
+          <a href="https://www.wweek.com/news/schools/2025/03/26/why-arent-seismic-upgrades-for-elementary-schools-the-top-priority-in-the-school-bond/"
+            target="_blank" style="color:var(--green);">Willamette Week: "Shake Shacks" — the original investigation
+            into PPS seismic risk (March 2025)</a><br><br>
+          <a href="https://www.wweek.com/news/schools/2025/05/10/here-are-the-19-pps-elementary-and-middle-schools-in-unreinforced-masonry-buildings/"
+            target="_blank" style="color:var(--green);">Willamette Week: The 19 PPS schools in unreinforced masonry
+            buildings (May 2025)</a><br><br>
+          <a href="https://www.safestructurespps.org/resources" target="_blank" style="color:var(--green);">Safe
+            Structures PPS — parent advocacy group with resources and coverage roundup</a><br><br>
+          <a href="https://www.pps.net/departments/rise/pps-maps-and-facility-data/seismic-assessments" target="_blank"
+            style="color:var(--green);">PPS official seismic assessments page</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- DECISION -->
+    <div class="section" id="decision">
+      <div class="section-header">
+        <div class="section-label">How We Chose</div>
+        <h2>Our Decision Framework</h2>
+        <p>We narrowed a long list to what mattered most to our family, then let the answers lead us.</p>
+      </div>
+
+      <div class="decision-intro">
+        <div class="winner-badge">Our choice</div>
+        <h3>The Emerson School</h3>
+        <p>We were on the waitlist — and got the call. It checked every box: project-based learning, small and caring
+          community, a "forever home" campus in SW Portland, diverse student body, and strong academics. Our runner-up
+          was Portland Montessori School, which we loved for its Montessori philosophy, safe building, close proximity,
+          and beautiful campus.</p>
+      </div>
+
+      <div style="margin: 1.5rem 0 0.75rem;">
+        <div class="section-label">Where we got in</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+        <div class="about-card"
+          style="border-top: 3px solid var(--green-mid); border-radius: 0 0 12px 12px; padding: 1rem 1.1rem;">
+          <div
+            style="font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--green); margin-bottom:0.5rem;">
+            Accepted</div>
+          <ul style="list-style:none; font-size:0.88rem; color:var(--text-muted); line-height:2;">
+            <li>✅ Portland Village School</li>
+            <li>✅ MLC</li>
+            <li>✅ The Emerson School <span style="font-size:0.75rem; color:var(--green);">(our choice)</span></li>
+          </ul>
         </div>
-        <div class="process-step">
-          <div class="step-dot" style="background: var(--amber-mid);"></div>
-          <div>
-            <h4>What is the school's earthquake emergency plan?</h4>
-            <p>Drop, cover, hold on — and then what? Ask how the school communicates with families after an event and where the reunification site is.</p>
-          </div>
+        <div class="about-card"
+          style="border-top: 3px solid var(--amber-mid); border-radius: 0 0 12px 12px; padding: 1rem 1.1rem;">
+          <div
+            style="font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--amber); margin-bottom:0.5rem;">
+            Waitlisted</div>
+          <ul style="list-style:none; font-size:0.88rem; color:var(--text-muted); line-height:2;">
+            <li>⏳ Cottonwood</li>
+            <li>⏳ The Ivy School</li>
+            <li>⏳ Sunnyside Environmental</li>
+          </ul>
         </div>
-        <div class="process-step">
-          <div class="step-dot" style="background: var(--amber-mid);"></div>
-          <div>
-            <h4>For PPS schools: what is this building's seismic risk score?</h4>
-            <p>The Holmes Consulting Group assessment assigned risk scores to all PPS buildings. The full report is public — you can look up your school before or after a tour.</p>
-          </div>
+        <div class="about-card"
+          style="border-top: 3px solid var(--gray-300); border-radius: 0 0 12px 12px; padding: 1rem 1.1rem;">
+          <div
+            style="font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--gray-500); margin-bottom:0.5rem;">
+            Declined / Passed</div>
+          <ul style="list-style:none; font-size:0.88rem; color:var(--text-muted); line-height:2;">
+            <li>↩️ Portland Village School <span style="font-size:0.75rem;">(commute)</span></li>
+            <li>↩️ MLC <span style="font-size:0.75rem;">(building safety)</span></li>
+          </ul>
         </div>
       </div>
-    </div>
 
-    <div class="about-card">
-      <h3>Further reading</h3>
-      <p>
-        <a href="https://www.wweek.com/news/schools/2025/03/26/why-arent-seismic-upgrades-for-elementary-schools-the-top-priority-in-the-school-bond/" target="_blank" style="color:var(--green);">Willamette Week: "Shake Shacks" — the original investigation into PPS seismic risk (March 2025)</a><br><br>
-        <a href="https://www.wweek.com/news/schools/2025/05/10/here-are-the-19-pps-elementary-and-middle-schools-in-unreinforced-masonry-buildings/" target="_blank" style="color:var(--green);">Willamette Week: The 19 PPS schools in unreinforced masonry buildings (May 2025)</a><br><br>
-        <a href="https://www.safestructurespps.org/resources" target="_blank" style="color:var(--green);">Safe Structures PPS — parent advocacy group with resources and coverage roundup</a><br><br>
-        <a href="https://www.pps.net/departments/rise/pps-maps-and-facility-data/seismic-assessments" target="_blank" style="color:var(--green);">PPS official seismic assessments page</a>
-      </p>
-    </div>
-  </div>
-
-  <!-- DECISION -->
-  <div class="section" id="decision">
-    <div class="section-header">
-      <div class="section-label">How We Chose</div>
-      <h2>Our Decision Framework</h2>
-      <p>We narrowed a long list to what mattered most to our family, then let the answers lead us.</p>
-    </div>
-
-    <div class="decision-intro">
-      <div class="winner-badge">Our choice</div>
-      <h3>The Emerson School</h3>
-      <p>We were on the waitlist — and got the call. It checked every box: project-based learning, small and caring community, a "forever home" campus in SW Portland, diverse student body, and strong academics. Our runner-up was Portland Montessori School, which we loved for its Montessori philosophy, safe building, close proximity, and beautiful campus.</p>
-    </div>
-
-    <div style="margin: 1.5rem 0 0.75rem;">
-      <div class="section-label">Where we got in</div>
-    </div>
-
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
-      <div class="about-card" style="border-top: 3px solid var(--green-mid); border-radius: 0 0 12px 12px; padding: 1rem 1.1rem;">
-        <div style="font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--green); margin-bottom:0.5rem;">Accepted</div>
-        <ul style="list-style:none; font-size:0.88rem; color:var(--text-muted); line-height:2;">
-          <li>✅ Portland Village School</li>
-          <li>✅ MLC</li>
-          <li>✅ The Emerson School <span style="font-size:0.75rem; color:var(--green);">(our choice)</span></li>
-        </ul>
+      <div class="about-card" style="margin-bottom: 1.5rem;">
+        <h3>How it unfolded</h3>
+        <p>We were accepted to Portland Village School and MLC, but ultimately didn't move forward with either. Portland
+          Village School felt like too far a commute for our family, and we had reservations about the brick structure
+          that houses MLC — a significant concern given our focus on earthquake safety. While we waited on our charter
+          waitlists, we thought our most likely path was The Portland Montessori School. Then the call came from
+          Emerson, and the decision was easy.</p>
       </div>
-      <div class="about-card" style="border-top: 3px solid var(--amber-mid); border-radius: 0 0 12px 12px; padding: 1rem 1.1rem;">
-        <div style="font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--amber); margin-bottom:0.5rem;">Waitlisted</div>
-        <ul style="list-style:none; font-size:0.88rem; color:var(--text-muted); line-height:2;">
-          <li>⏳ Cottonwood</li>
-          <li>⏳ The Ivy School</li>
-          <li>⏳ Sunnyside Environmental</li>
-        </ul>
-      </div>
-      <div class="about-card" style="border-top: 3px solid var(--gray-300); border-radius: 0 0 12px 12px; padding: 1rem 1.1rem;">
-        <div style="font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--gray-500); margin-bottom:0.5rem;">Declined / Passed</div>
-        <ul style="list-style:none; font-size:0.88rem; color:var(--text-muted); line-height:2;">
-          <li>↩️ Portland Village School <span style="font-size:0.75rem;">(commute)</span></li>
-          <li>↩️ MLC <span style="font-size:0.75rem;">(building safety)</span></li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="about-card" style="margin-bottom: 1.5rem;">
-      <h3>How it unfolded</h3>
-      <p>We were accepted to Portland Village School and MLC, but ultimately didn't move forward with either. Portland Village School felt like too far a commute for our family, and we had reservations about the brick structure that houses MLC — a significant concern given our focus on earthquake safety. While we waited on our charter waitlists, we thought our most likely path was The Portland Montessori School. Then the call came from Emerson, and the decision was easy.</p>
-    </div>
-
-    <div style="margin-bottom: 0.75rem;">
-      <div class="section-label">What we prioritized</div>
-    </div>
+      <div style="margin-bottom: 0.75rem;">
+        <div class="section-label">What we prioritized</div>
+      </div>
       <div class="criteria-grid">
         <div class="criteria-card">
           <div class="icon">🌍</div>
           <h4>Diverse student body</h4>
-          <p>We wanted our child in a classroom that reflects the full range of Portland's community — racially, economically, and culturally.</p>
+          <p>We wanted our child in a classroom that reflects the full range of Portland's community — racially,
+            economically, and culturally.</p>
         </div>
         <div class="criteria-card">
           <div class="icon">🧠</div>
@@ -924,162 +1217,210 @@
           <p>Portland sits on a major fault. We looked at building age and seismic upgrade status.</p>
         </div>
       </div>
-    </div>
+      <div class="about-card">
+        <h3>Why Emerson rose to the top</h3>
+        <p>The project-based approach keeps kids engaged with real-world questions. They get daily movement outside in
+          addition to recess. The school runs weekly 5th-grade book buddies and all-school mixed-grade activities that
+          build genuine belonging. And their new "forever home" in SW Portland is a modern, light-filled space that
+          passed
+          our building safety check. The cherry on top: it's tuition-free as a public charter.</p>
+      </div>
 
-    <div class="about-card">
-      <h3>Why Emerson rose to the top</h3>
-      <p>The project-based approach keeps kids engaged with real-world questions. They get daily movement outside in addition to recess. The school runs weekly 5th-grade book buddies and all-school mixed-grade activities that build genuine belonging. And their new "forever home" in SW Portland is a modern, light-filled space that passed our building safety check. The cherry on top: it's tuition-free as a public charter.</p>
-    </div>
-
-    <div class="about-card">
-      <h3>Why Portland Montessori was a close second</h3>
-      <p>Oregon's oldest Montessori program — over 60 years running — on a one-acre campus in NE Portland. The Montessori method aligned perfectly with our values around self-directed learning and mixed-age classrooms. The school is now independently governed with an active parent advisory committee. The key tradeoff: it's private with tuition, and priority goes to kids with prior Montessori experience.</p>
-    </div>
-  </div>
-
-  <!-- TIPS -->
-  <div class="section" id="tips">
-    <div class="section-header">
-      <div class="section-label">What We'd Tell Other Portland Parents</div>
-      <h2>Lessons Learned</h2>
-      <p>Things we wish someone had told us before we started this process.</p>
-    </div>
-
-    <div class="tips-list">
-      <div class="tip-card">
-        <div class="tip-num">1</div>
-        <div>
-          <h4>Visit the schools in person — it's non-negotiable</h4>
-          <p>No website, virtual tour, or GreatSchools rating tells you what 20 minutes on campus will. You'll feel the energy immediately. Watch how adults talk to children. Pay attention to how kids interact with each other at recess. Ask teachers why they chose this school — their answers are revealing.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-num">2</div>
-        <div>
-          <h4>Align with your co-parent before you start touring</h4>
-          <p>It sounds obvious, but agreeing on your top two or three criteria before you set foot in any school will save you a lot of post-visit arguments. What matters most — curriculum philosophy? Proximity? Diversity? Cost? Get aligned early so you're evaluating the same things.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-num">3</div>
-        <div>
-          <h4>Apply broadly — even to schools you're only "kind of" interested in</h4>
-          <p>Waitlists move. Lottery results are unpredictable. Apply to anything you'd genuinely say yes to if the call came. You can always decline. The cost of applying is low; the cost of not applying when a spot opens is high.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-num">4</div>
-        <div>
-          <h4>Understand each application timeline — they're all different</h4>
-          <p>PPS focus options, public charters, and private schools all run on different calendars with different deadlines. Charter schools have their own independent lotteries. Miss a window and you might wait a full year. Start a spreadsheet in October.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-num">5</div>
-        <div>
-          <h4>The neighborhood school option is underrated</h4>
-          <p>Don't dismiss your neighborhood school before visiting. The convenience and community of walking to school with your neighbors has real value that's easy to underestimate on paper. Some of the warmest school visits we had were at neighborhood schools with deeply engaged parent communities.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-num">6</div>
-        <div>
-          <h4>Ask about the building</h4>
-          <p>Portland sits near the Cascadia Subduction Zone. Seismic safety is a real consideration. Ask specifically whether the building has been seismically upgraded. Newer buildings are generally safer; some older school buildings in Portland have not yet been retrofitted. This is public information — don't be shy about asking.</p>
-        </div>
+      <div class="about-card">
+        <h3>Why Portland Montessori was a close second</h3>
+        <p>Oregon's oldest Montessori program — over 60 years running — on a one-acre campus in NE Portland. The
+          Montessori method aligned perfectly with our values around self-directed learning and mixed-age classrooms.
+          The
+          school is now independently governed with an active parent advisory committee. The key tradeoff: it's private
+          with tuition, and priority goes to kids with prior Montessori experience.</p>
       </div>
     </div>
-  </div>
 
-  <!-- ABOUT -->
-  <div class="section" id="about">
-    <div class="section-header">
-      <div class="section-label">Background</div>
-      <h2>About This Guide</h2>
-      <p>A quick note on who we are and how we approached this process.</p>
-    </div>
+    <!-- TIPS -->
+    <div class="section" id="tips">
+      <div class="section-header">
+        <div class="section-label">What We'd Tell Other Portland Parents</div>
+        <h2>Lessons Learned</h2>
+        <p>Things we wish someone had told us before we started this process.</p>
+      </div>
 
-    <div class="about-card">
-      <h3>Who we are</h3>
-      <p>We're a Portland family who went through kindergarten school selection and wanted to share what we found with other families doing the same research. We have no affiliation with any of the schools listed. Our child now attends The Emerson School, and we couldn't be happier — but every family's priorities are different, and the right school for your kid might look very different from ours.</p>
-    </div>
-
-    <div class="about-card">
-      <h3>How we ran our process</h3>
-      <div class="process-steps">
-        <div class="process-step">
-          <div class="step-dot"></div>
+      <div class="tips-list">
+        <div class="tip-card">
+          <div class="tip-num">1</div>
           <div>
-            <h4>Tours (Nov – April)</h4>
-            <p>We visited or attended info nights at all of our neighborhood schools, private schools, and some of the charter schools. It was hard to get to all of them but it was the most helpful part of our process.</p>
+            <h4>Visit the schools in person — it's non-negotiable</h4>
+            <p>No website, virtual tour, or GreatSchools rating tells you what 20 minutes on campus will. You'll feel
+              the
+              energy immediately. Watch how adults talk to children. Pay attention to how kids interact with each other
+              at
+              recess. Ask teachers why they chose this school — their answers are revealing.</p>
           </div>
         </div>
-        <div class="process-step">
-          <div class="step-dot"></div>
+        <div class="tip-card">
+          <div class="tip-num">2</div>
           <div>
-            <h4>Applications (Jan – March)</h4>
-            <p>We applied to every school we'd possibly say yes to. PPS focus options, charter lotteries, and private schools all had different deadlines and processes.</p>
+            <h4>Align with your co-parent before you start touring</h4>
+            <p>It sounds obvious, but agreeing on your top two or three criteria before you set foot in any school will
+              save you a lot of post-visit arguments. What matters most — curriculum philosophy? Proximity? Diversity?
+              Cost? Get aligned early so you're evaluating the same things.</p>
           </div>
         </div>
-        <div class="process-step">
-          <div class="step-dot"></div>
+        <div class="tip-card">
+          <div class="tip-num">3</div>
           <div>
-            <h4>Waiting (April – June)</h4>
-            <p>Lottery results came in waves. We ranked our waitlists and held our neighborhood school spot as a backup until we had a firm offer we felt good about.</p>
+            <h4>Apply broadly — even to schools you're only "kind of" interested in</h4>
+            <p>Waitlists move. Lottery results are unpredictable. Apply to anything you'd genuinely say yes to if the
+              call
+              came. You can always decline. The cost of applying is low; the cost of not applying when a spot opens is
+              high.</p>
           </div>
         </div>
-        <div class="process-step">
-          <div class="step-dot"></div>
+        <div class="tip-card">
+          <div class="tip-num">4</div>
           <div>
-            <h4>Decision</h4>
-            <p>Emerson came off the waitlist and we made a fast pivot. The staff let us come by the school one more time to be sure. It was the easiest call we made in the whole process.</p>
+            <h4>Understand each application timeline — they're all different</h4>
+            <p>PPS focus options, public charters, and private schools all run on different calendars with different
+              deadlines. Charter schools have their own independent lotteries. Miss a window and you might wait a full
+              year. Start a spreadsheet in October.</p>
+          </div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">5</div>
+          <div>
+            <h4>The neighborhood school option is underrated</h4>
+            <p>Don't dismiss your neighborhood school before visiting. The convenience and community of walking to
+              school
+              with your neighbors has real value that's easy to underestimate on paper. Some of the warmest school
+              visits
+              we had were at neighborhood schools with deeply engaged parent communities.</p>
+          </div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">6</div>
+          <div>
+            <h4>Ask about the building</h4>
+            <p>Portland sits near the Cascadia Subduction Zone. Seismic safety is a real consideration. Ask specifically
+              whether the building has been seismically upgraded. Newer buildings are generally safer; some older school
+              buildings in Portland have not yet been retrofitted. This is public information — don't be shy about
+              asking.
+            </p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="about-card">
-      <h3>Useful resources</h3>
-      <p>
-        <a href="https://www.pps.net/departments/enrollment-transfer/enroll/explore-your-options/k-5-explore-your-options" style="color:var(--green);" target="_blank">PPS K-5 Options Overview</a> — The official page for focus option lottery schools.<br><br>
-        <a href="https://pdxparent.com/lottery-lowdown/" style="color:var(--green);" target="_blank">PDX Parent: Everything You Need to Know About the PPS School Lottery</a> — Covers the focus option lottery, charter applications, hardship petitions, and waitlists. Essential reading.<br><br>
-        <a href="https://www.pps.net" style="color:var(--green);" target="_blank">Portland Public Schools</a> — For enrollment timelines, neighborhood assignment, and school contacts.
+    <!-- ABOUT -->
+    <div class="section" id="about">
+      <div class="section-header">
+        <div class="section-label">Background</div>
+        <h2>About This Guide</h2>
+        <p>A quick note on who we are and how we approached this process.</p>
+      </div>
+
+      <div class="about-card">
+        <h3>Who we are</h3>
+        <p>We're a Portland family who went through kindergarten school selection and wanted to share what we found with
+          other families doing the same research. We have no affiliation with any of the schools listed. Our child now
+          attends The Emerson School, and we couldn't be happier — but every family's priorities are different, and the
+          right school for your kid might look very different from ours.</p>
+      </div>
+
+      <div class="about-card">
+        <h3>How we ran our process</h3>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-dot"></div>
+            <div>
+              <h4>Tours (Nov – April)</h4>
+              <p>We visited or attended info nights at all of our neighborhood schools, private schools, and some of the
+                charter schools. It was hard to get to all of them but it was the most helpful part of our process.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-dot"></div>
+            <div>
+              <h4>Applications (Jan – March)</h4>
+              <p>We applied to every school we'd possibly say yes to. PPS focus options, charter lotteries, and private
+                schools all had different deadlines and processes.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-dot"></div>
+            <div>
+              <h4>Waiting (April – June)</h4>
+              <p>Lottery results came in waves. We ranked our waitlists and held our neighborhood school spot as a
+                backup
+                until we had a firm offer we felt good about.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-dot"></div>
+            <div>
+              <h4>Decision</h4>
+              <p>Emerson came off the waitlist and we made a fast pivot. The staff let us come by the school one more
+                time
+                to be sure. It was the easiest call we made in the whole process.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <h3>Useful resources</h3>
+        <p>
+          <a href="https://www.pps.net/departments/enrollment-transfer/enroll/explore-your-options/k-5-explore-your-options"
+            style="color:var(--green);" target="_blank">PPS K-5 Options Overview</a> — The official page for focus
+          option
+          lottery schools.<br><br>
+          <a href="https://pdxparent.com/lottery-lowdown/" style="color:var(--green);" target="_blank">PDX Parent:
+            Everything You Need to Know About the PPS School Lottery</a> — Covers the focus option lottery, charter
+          applications, hardship petitions, and waitlists. Essential reading.<br><br>
+          <a href="https://www.pps.net" style="color:var(--green);" target="_blank">Portland Public Schools</a> — For
+          enrollment timelines, neighborhood assignment, and school contacts.
+        </p>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    function filterCards(type, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.school-card').forEach(card => {
+        if (type === 'all' || card.dataset.type === type) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+  <!-- CROSS-LINK -->
+  <div style="background:#F8F7F4; border-top:1px solid rgba(0,0,0,0.08); padding:2.5rem 1.5rem; text-align:center;">
+    <div style="max-width:500px; margin:0 auto;">
+      <div
+        style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#639922; margin-bottom:0.5rem;">
+        New to Portland schools?</div>
+      <div style="font-family:'DM Serif Display',serif; font-size:1.4rem; margin-bottom:0.6rem; color:#1C1C1A;">
+        Understand the system first</div>
+      <p style="font-size:0.88rem; color:#666; max-width:400px; margin:0 auto 1.25rem;">Not sure what a focus option or
+        charter school is? Our primer explains how Portland's school system works — before you dive into the specifics.
       </p>
+      <a href="index.html"
+        style="display:inline-block; background:#1C2B1A; color:white; text-decoration:none; font-size:13px; font-weight:600; padding:10px 22px; border-radius:8px;">Read
+        the school system primer →</a>
     </div>
   </div>
-
-</div><!-- /main -->
-
-<script>
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    event.target.classList.add('active');
-  }
-
-  function filterCards(type, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.school-card').forEach(card => {
-      if (type === 'all' || card.dataset.type === type) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-</script>
-
-<!-- CROSS-LINK -->
-<div style="background:#F8F7F4; border-top:1px solid rgba(0,0,0,0.08); padding:2.5rem 1.5rem; text-align:center;">
-  <div style="max-width:500px; margin:0 auto;">
-    <div style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#639922; margin-bottom:0.5rem;">New to Portland schools?</div>
-    <div style="font-family:'DM Serif Display',serif; font-size:1.4rem; margin-bottom:0.6rem; color:#1C1C1A;">Understand the system first</div>
-    <p style="font-size:0.88rem; color:#666; max-width:400px; margin:0 auto 1.25rem;">Not sure what a focus option or charter school is? Our primer explains how Portland's school system works — before you dive into the specifics.</p>
-    <a href="index.html" style="display:inline-block; background:#1C2B1A; color:white; text-decoration:none; font-size:13px; font-weight:600; padding:10px 22px; border-radius:8px;">Read the school system primer →</a>
-  </div>
-</div>
 
 </body>
+
 </html>
