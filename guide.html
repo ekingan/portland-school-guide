@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portland K Guide: One Family's Journey</title>
+  <title>Portland School Guide: One Family's Journey</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
@@ -134,7 +134,7 @@
       background: white;
       border-bottom: 1px solid var(--border);
       position: sticky;
-      top: 0;
+      top: 52px;
       z-index: 100;
     }
 
@@ -185,11 +185,25 @@
     }
 
     .section {
-      display: none;
+      scroll-margin-top: 110px;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
     }
 
-    .section.active {
-      display: block;
+    .section:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    @media (max-width: 430px) {
+      .nav-wrap {
+        position: relative;
+        top: auto;
+      }
+
+      .section {
+        scroll-margin-top: 60px;
+      }
     }
 
     /* SECTION HEADER */
@@ -408,6 +422,13 @@
       margin-bottom: 2rem;
     }
 
+    .where-got-in-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
     .criteria-card {
       background: white;
       border: 1px solid var(--border);
@@ -532,6 +553,19 @@
       color: var(--text-muted);
     }
 
+    .systems-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .systems-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* Chosen highlight border */
     .school-card.chosen {
       border-color: var(--green-mid);
@@ -627,6 +661,10 @@
         gap: 0.5rem;
       }
 
+      .where-got-in-grid {
+        grid-template-columns: 1fr;
+      }
+
       .site-nav-brand {
         font-size: 0.82rem;
         white-space: normal;
@@ -677,31 +715,30 @@
     <p>We visited dozens of schools across every category — here's everything we learned, and how we finally made the
       call.</p>
     <div class="hero-criteria">
-      <span class="criteria-pill highlight">Small class sizes</span>
-      <span class="criteria-pill highlight">Alternative child centered education models</span>
-      <span class="criteria-pill highlight">Ample outdoor time</span>
-      <span class="criteria-pill highlight">Bikeability</span>
-      <span class="criteria-pill highlight">Diversity</span>
-      <span class="criteria-pill">Strong parent community</span>
-      <span class="criteria-pill">Building earthquake safety</span>
+      <span class="criteria-pill highlight" onclick="showSection('schools')">Schools We Considered</span>
+      <span class="criteria-pill highlight" onclick="showSection('lotteries')">Navigating the Lotteries</span>
+      <span class="criteria-pill highlight" onclick="showSection('quake')">Earthquake Safety</span>
+      <span class="criteria-pill highlight" onclick="showSection('decision')">Our Decision</span>
+      <span class="criteria-pill highlight" onclick="showSection('tips')">Lessons Learned</span>
+      <span class="criteria-pill highlight" onclick="showSection('about')">Our Process</span>
     </div>
   </div>
 
   <div class="nav-wrap">
-    <div class="nav-tabs" role="tablist">
-      <button class="nav-tab active" onclick="showSection('schools')" role="tab">All Schools</button>
-      <button class="nav-tab" onclick="showSection('lotteries')" role="tab">Navigating the Lotteries</button>
-      <button class="nav-tab" onclick="showSection('quake')" role="tab">Earthquake Safety</button>
-      <button class="nav-tab" onclick="showSection('decision')" role="tab">Our Decision</button>
-      <button class="nav-tab" onclick="showSection('tips')" role="tab">Lessons Learned</button>
-      <button class="nav-tab" onclick="showSection('about')" role="tab">Our Process</button>
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-section="schools" onclick="scrollToSection('schools')">Schools</button>
+      <button class="nav-tab" data-section="lotteries" onclick="scrollToSection('lotteries')">Lotteries</button>
+      <button class="nav-tab" data-section="quake" onclick="scrollToSection('quake')">Earthquake Safety</button>
+      <button class="nav-tab" data-section="decision" onclick="scrollToSection('decision')">Our Decision</button>
+      <button class="nav-tab" data-section="tips" onclick="scrollToSection('tips')">Lessons Learned</button>
+      <button class="nav-tab" data-section="about" onclick="scrollToSection('about')">Our Process</button>
     </div>
   </div>
 
   <div class="main">
 
     <!-- ALL SCHOOLS -->
-    <div class="section active" id="schools">
+    <div class="section" id="schools">
       <div class="section-header">
         <div class="section-label">The Full Landscape</div>
         <h2>Schools We Explored</h2>
@@ -965,7 +1002,7 @@
         <div class="section-label">The two parallel systems</div>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+      <div class="systems-grid">
         <div class="about-card">
           <h3 style="font-size: 1rem;">PPS Focus Option Lottery</h3>
           <p>Run centrally by Portland Public Schools. You can select up to three focus option schools (MLC, Bridger
@@ -979,6 +1016,10 @@
             Portland Arthur Academy, Portland Village School) runs its own independent lottery. You apply separately to
             each one. Deadlines and processes vary by school — check each school's website directly.</p>
         </div>
+      </div>
+
+      <div style="margin: 1.5rem 0 0.75rem;">
+        <div class="section-label">Timing and chances</div>
       </div>
 
       <div class="about-card">
@@ -1213,7 +1254,7 @@
         <div class="section-label">Where we got in</div>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+      <div class="where-got-in-grid">
         <div class="about-card"
           style="border-top: 3px solid var(--green-mid); border-radius: 0 0 12px 12px; padding: 1rem 1.1rem;">
           <div
@@ -1482,10 +1523,11 @@
 
   <script>
     function showSection(id) {
-      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      event.target.classList.add('active');
+      scrollToSection(id);
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
 
     function filterCards(type, btn) {
@@ -1499,6 +1541,19 @@
         }
       });
     }
+
+    // Scrollspy: highlight the nav tab for the section currently in view
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+          const tab = document.querySelector(`.nav-tab[data-section="${entry.target.id}"]`);
+          if (tab) tab.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -75% 0px', threshold: 0 });
+
+    document.querySelectorAll('.section').forEach(s => sectionObserver.observe(s));
   </script>
 
   <!-- CROSS-LINK -->
