@@ -589,6 +589,10 @@
       white-space: nowrap;
     }
 
+    .site-nav-brand .brand-short {
+      display: none;
+    }
+
     .site-nav-links {
       display: flex;
       gap: 4px;
@@ -614,6 +618,44 @@
       color: #E8F0E4;
       background: rgba(255, 255, 255, 0.1);
     }
+
+    @media (max-width: 430px) {
+      .site-nav {
+        height: auto;
+        padding: 0.65rem 1rem;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .site-nav-brand {
+        font-size: 0.82rem;
+        white-space: normal;
+        line-height: 1.25;
+      }
+
+      .site-nav-brand .brand-full {
+        display: none;
+      }
+
+      .site-nav-brand .brand-short {
+        display: inline;
+      }
+
+      .site-nav-links {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4rem;
+      }
+
+      .site-nav-link {
+        text-align: center;
+        font-size: 11px;
+        padding: 7px 8px;
+        white-space: normal;
+        line-height: 1.2;
+      }
+    }
   </style>
 </head>
 
@@ -621,7 +663,8 @@
 
   <!-- SITE NAV -->
   <nav class="site-nav">
-    <a class="site-nav-brand" href="index.html">Choosing a School in Portland</a>
+    <a class="site-nav-brand" href="index.html"><span class="brand-full">Choosing a School in Portland</span><span
+        class="brand-short">Portland School Guide</span></a>
     <div class="site-nav-links">
       <a class="site-nav-link" href="index.html">Understanding the System</a>
       <a class="site-nav-link active" href="guide.html">Our School Guide</a>
@@ -1373,7 +1416,9 @@
           of them because we felt it was not the best fit for our child, but we know it's a top priority for many
           families.
           If that's you, check out the PPS options and the charter schools that offer immersion programs, there are so
-          many to choose from!
+          many to choose from! PDX Parent has a great article covering the immersion options in Portland:<br /> <a
+            href="https://pdxparent.com/portland-dual-language-immersion-guide/" style="color:var(--green);"
+            target="_blank">PDX Parent: Portland Dual Language Immersion Guide</a>.
         </p>
       </div>
 
